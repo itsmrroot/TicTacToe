@@ -203,40 +203,42 @@ minimax(isComputerTurn):
 
 ---
 
-## ▶️ Installation & Distribution
+## ▶️ Installation & Verteilung
 
-There are **two ways** to distribute a Java application:
+Es gibt **zwei Möglichkeiten**, eine Java-Anwendung zu verteilen:
 
-| Method | Java Required? | File Type | Best For |
-|--------|---------------|-----------|----------|
-| **Method 1 — JAR file** | ✅ Yes | `.jar` | Developers / Technical users |
-| **Method 2 — Native App** | ❌ No | `.dmg` / `.exe` / `.deb` | End users |
+| Methode | Java erforderlich? | Dateityp | Geeignet für |
+|---------|-------------------|----------|--------------|
+| **Methode 1 — JAR-Datei** | ✅ Ja | `.jar` | Entwickler / Technische Benutzer |
+| **Methode 2 — Native App** | ❌ Nein | `.dmg` / `.exe` / `.deb` | Endbenutzer |
+
+> ⚠️ **Wichtiger Hinweis:** Die DMG/EXE/DEB-Methode funktioniert nur für **GUI-Anwendungen** mit grafischen Fenstern. Da Tic-Tac-Toe eine **Konsolenanwendung** ist, die Terminal-Eingabe benötigt, wird **Methode 1 (JAR)** empfohlen.
 
 ---
 
 ## 🍎 macOS (Apple Silicon & Intel)
 
-### Method 1 — JAR file
+### Methode 1 — JAR-Datei
 
-**Step 1 — Build JAR in IntelliJ:**
+**Schritt 1 — JAR in IntelliJ erstellen:**
 ```
 File → Project Structure → Artifacts → + → JAR → From modules with dependencies
 Main Class: com.company.Main → OK
 Build → Build Artifacts → Build
 ```
 
-**Step 2 — Run in Terminal:**
+**Schritt 2 — Im Terminal ausführen:**
 ```bash
-java -jar /path/to/TicTacToe.jar
+java -jar /Pfad/zu/TicTacToe.jar
 ```
 
 ---
 
-### Method 2 — DMG (Mac App, no Java needed)
+### Methode 2 — DMG (Mac App, kein Java erforderlich)
 
-**Step 1 — Create a build script:**
+**Schritt 1 — Build-Script erstellen:**
 
-Create a file called `build-dmg.sh` in your project with this content:
+Eine Datei namens `build-dmg.sh` im Projektverzeichnis erstellen:
 ```bash
 #!/bin/bash
 jpackage --input /Users/mbp/IdeaProjects/TicTacToe/out/artifacts/TicTacToe_jar/ \
@@ -248,89 +250,88 @@ jpackage --input /Users/mbp/IdeaProjects/TicTacToe/out/artifacts/TicTacToe_jar/ 
          --app-version 1.0
 ```
 
-**Step 2 — Make it executable (only once):**
+**Schritt 2 — Script ausführbar machen (nur einmal):**
 ```bash
 chmod +x build-dmg.sh
 ```
 
-**Step 3 — Run the script:**
+**Schritt 3 — Script ausführen:**
 ```bash
 ./build-dmg.sh
 ```
 
-**Step 4 — Find `TicTacToe-1.0.dmg` on your Desktop:**
-- Double-click the `.dmg`
-- Drag `TicTacToe` into Applications
-- Launch from Applications ✅
+**Schritt 4 — `TicTacToe-1.0.dmg` auf dem Desktop öffnen:**
+- Doppelklick auf die `.dmg`-Datei
+- `TicTacToe` in den Applications-Ordner ziehen ✅
 
-> ✅ Works on both Apple Silicon (M1/M2/M3/M4) and Intel Macs
+> ✅ Funktioniert auf Apple Silicon (M1/M2/M3/M4) und Intel Macs
 
 ---
 
 ## 🪟 Windows
 
-### Method 1 — JAR file
+### Methode 1 — JAR-Datei
 
-**Step 1 — Build JAR in IntelliJ** (same as Mac above)
+**Schritt 1 — JAR in IntelliJ erstellen** (wie macOS oben)
 
-**Step 2 — Open Command Prompt:**
+**Schritt 2 — Eingabeaufforderung öffnen:**
 ```
-Press Win + R → type cmd → Enter
+Win + R → cmd → Enter
 ```
 
-**Step 3 — Run the JAR:**
+**Schritt 3 — JAR ausführen:**
 ```cmd
-java -jar C:\path\to\TicTacToe.jar
+java -jar C:\Pfad\zu\TicTacToe.jar
 ```
 
 ---
 
-### Method 2 — EXE (Windows App, no Java needed)
+### Methode 2 — EXE (Windows App, kein Java erforderlich)
 
-**Step 1 — Create a build script:**
+**Schritt 1 — Build-Script erstellen:**
 
-Create a file called `build-exe.bat` in your project:
+Eine Datei namens `build-exe.bat` im Projektverzeichnis erstellen:
 ```bat
-jpackage --input "C:\path\to\out\artifacts\TicTacToe_jar\" ^
+jpackage --input "C:\Pfad\zu\out\artifacts\TicTacToe_jar\" ^
          --name TicTacToe ^
          --main-jar TicTacToe.jar ^
          --main-class com.company.Main ^
          --type exe ^
-         --dest "C:\Users\YourName\Desktop\" ^
+         --dest "C:\Users\Name\Desktop\" ^
          --app-version 1.0
 ```
 
-**Step 2 — Double-click `build-exe.bat` to run it**
+**Schritt 2 — Doppelklick auf `build-exe.bat`**
 
-**Step 3 — Find `TicTacToe-1.0.exe` on your Desktop:**
-- Double-click to install like a normal Windows program
-- Launch from Start Menu ✅
+**Schritt 3 — `TicTacToe-1.0.exe` auf dem Desktop installieren:**
+- Doppelklick → Installation wie ein normales Windows-Programm
+- Über das Startmenü starten ✅
 
-> ⚠️ Requires Java 17+ installed on the **developer's** machine to build
+> ⚠️ Java 17+ muss auf dem **Entwickler-PC** installiert sein
 
 ---
 
 ## 🐧 Linux
 
-### Method 1 — JAR file
+### Methode 1 — JAR-Datei
 
-**Step 1 — Build JAR in IntelliJ** (same as Mac above)
+**Schritt 1 — JAR in IntelliJ erstellen** (wie macOS oben)
 
-**Step 2 — Open Terminal:**
+**Schritt 2 — Im Terminal ausführen:**
 ```bash
-java -jar /path/to/TicTacToe.jar
+java -jar /Pfad/zu/TicTacToe.jar
 ```
 
 ---
 
-### Method 2 — DEB package (Linux App, no Java needed)
+### Methode 2 — DEB-Paket (Linux App, kein Java erforderlich)
 
-**Step 1 — Create a build script:**
+**Schritt 1 — Build-Script erstellen:**
 
-Create a file called `build-deb.sh` in your project:
+Eine Datei namens `build-deb.sh` im Projektverzeichnis erstellen:
 ```bash
 #!/bin/bash
-jpackage --input /path/to/out/artifacts/TicTacToe_jar/ \
+jpackage --input /Pfad/zu/out/artifacts/TicTacToe_jar/ \
          --name TicTacToe \
          --main-jar TicTacToe.jar \
          --main-class com.company.Main \
@@ -339,33 +340,34 @@ jpackage --input /path/to/out/artifacts/TicTacToe_jar/ \
          --app-version 1.0
 ```
 
-**Step 2 — Make it executable:**
+**Schritt 2 — Script ausführbar machen:**
 ```bash
 chmod +x build-deb.sh
 ```
 
-**Step 3 — Run the script:**
+**Schritt 3 — Script ausführen:**
 ```bash
 ./build-deb.sh
 ```
 
-**Step 4 — Install the `.deb` file:**
+**Schritt 4 — DEB-Paket installieren:**
 ```bash
 sudo dpkg -i TicTacToe-1.0.deb
 ```
-✅ App is now installed system-wide
+✅ App ist systemweit installiert
 
 ---
 
-## 📊 Platform Comparison
+## 📊 Plattformvergleich
 
-| Feature | 🍎 macOS | 🪟 Windows | 🐧 Linux |
+| Funktion | 🍎 macOS | 🪟 Windows | 🐧 Linux |
 |---------|---------|-----------|---------|
-| JAR works | ✅ | ✅ | ✅ |
-| Native package | `.dmg` | `.exe` | `.deb` |
-| Build script | `.sh` | `.bat` | `.sh` |
-| No Java needed | ✅ DMG | ✅ EXE | ✅ DEB |
-| jpackage built-in | ✅ Java 17+ | ✅ Java 17+ | ✅ Java 17+ |
+| JAR funktioniert | ✅ | ✅ | ✅ |
+| Native Paketart | `.dmg` | `.exe` | `.deb` |
+| Build-Script | `.sh` | `.bat` | `.sh` |
+| Kein Java nötig | ✅ DMG | ✅ EXE | ✅ DEB |
+| jpackage integriert | ✅ Java 17+ | ✅ Java 17+ | ✅ Java 17+ |
+| Für Konsolenanwendungen | ⚠️ JAR empfohlen | ⚠️ JAR empfohlen | ⚠️ JAR empfohlen |
 
 ---
 
@@ -373,12 +375,12 @@ sudo dpkg -i TicTacToe-1.0.deb
 
 ```
 Numpad-Layout:
-  7 | 8 | 9   →   top
-  4 | 5 | 6   →   middle
-  1 | 2 | 3   →   bottom
+  7 | 8 | 9   →   oben
+  4 | 5 | 6   →   mitte
+  1 | 2 | 3   →   unten
 
-Menu input:   numbers shown on screen
-Play again:   j (Yes) / n (No)
+Menü-Eingaben: Zahlen entsprechend der angezeigten Optionen
+Nochmal spielen: j (Ja) / n (Nein)
 ```
 
 ---
@@ -391,6 +393,7 @@ Play again:   j (Yes) / n (No)
 | **Lehrer** | G. Jarz |
 | **Institution** | BFI-Leoben |
 | **Jahr** | 2026 |
+| **GitHub** | https://github.com/BasharSalmo/TicTacToe |
 
 ---
 
