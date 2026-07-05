@@ -203,30 +203,182 @@ minimax(isComputerTurn):
 
 ---
 
-## ▶️ Installation & Start
+## ▶️ Installation & Distribution
 
-### Voraussetzungen
-- Java **17** oder höher
-- IntelliJ IDEA (empfohlen)
+There are **two ways** to distribute a Java application:
 
-### Schritte
+| Method | Java Required? | File Type | Best For |
+|--------|---------------|-----------|----------|
+| **Method 1 — JAR file** | ✅ Yes | `.jar` | Developers / Technical users |
+| **Method 2 — Native App** | ❌ No | `.dmg` / `.exe` / `.deb` | End users |
 
-```bash
-# 1. Projekt klonen oder herunterladen
-# 2. In IntelliJ IDEA öffnen
-# 3. Main.java ausführen (Run > Run 'Main')
+---
+
+## 🍎 macOS (Apple Silicon & Intel)
+
+### Method 1 — JAR file
+
+**Step 1 — Build JAR in IntelliJ:**
 ```
+File → Project Structure → Artifacts → + → JAR → From modules with dependencies
+Main Class: com.company.Main → OK
+Build → Build Artifacts → Build
+```
+
+**Step 2 — Run in Terminal:**
+```bash
+java -jar /path/to/TicTacToe.jar
+```
+
+---
+
+### Method 2 — DMG (Mac App, no Java needed)
+
+**Step 1 — Create a build script:**
+
+Create a file called `build-dmg.sh` in your project with this content:
+```bash
+#!/bin/bash
+jpackage --input /Users/mbp/IdeaProjects/TicTacToe/out/artifacts/TicTacToe_jar/ \
+         --name TicTacToe \
+         --main-jar TicTacToe.jar \
+         --main-class com.company.Main \
+         --type dmg \
+         --dest /Users/mbp/Desktop/ \
+         --app-version 1.0
+```
+
+**Step 2 — Make it executable (only once):**
+```bash
+chmod +x build-dmg.sh
+```
+
+**Step 3 — Run the script:**
+```bash
+./build-dmg.sh
+```
+
+**Step 4 — Find `TicTacToe-1.0.dmg` on your Desktop:**
+- Double-click the `.dmg`
+- Drag `TicTacToe` into Applications
+- Launch from Applications ✅
+
+> ✅ Works on both Apple Silicon (M1/M2/M3/M4) and Intel Macs
+
+---
+
+## 🪟 Windows
+
+### Method 1 — JAR file
+
+**Step 1 — Build JAR in IntelliJ** (same as Mac above)
+
+**Step 2 — Open Command Prompt:**
+```
+Press Win + R → type cmd → Enter
+```
+
+**Step 3 — Run the JAR:**
+```cmd
+java -jar C:\path\to\TicTacToe.jar
+```
+
+---
+
+### Method 2 — EXE (Windows App, no Java needed)
+
+**Step 1 — Create a build script:**
+
+Create a file called `build-exe.bat` in your project:
+```bat
+jpackage --input "C:\path\to\out\artifacts\TicTacToe_jar\" ^
+         --name TicTacToe ^
+         --main-jar TicTacToe.jar ^
+         --main-class com.company.Main ^
+         --type exe ^
+         --dest "C:\Users\YourName\Desktop\" ^
+         --app-version 1.0
+```
+
+**Step 2 — Double-click `build-exe.bat` to run it**
+
+**Step 3 — Find `TicTacToe-1.0.exe` on your Desktop:**
+- Double-click to install like a normal Windows program
+- Launch from Start Menu ✅
+
+> ⚠️ Requires Java 17+ installed on the **developer's** machine to build
+
+---
+
+## 🐧 Linux
+
+### Method 1 — JAR file
+
+**Step 1 — Build JAR in IntelliJ** (same as Mac above)
+
+**Step 2 — Open Terminal:**
+```bash
+java -jar /path/to/TicTacToe.jar
+```
+
+---
+
+### Method 2 — DEB package (Linux App, no Java needed)
+
+**Step 1 — Create a build script:**
+
+Create a file called `build-deb.sh` in your project:
+```bash
+#!/bin/bash
+jpackage --input /path/to/out/artifacts/TicTacToe_jar/ \
+         --name TicTacToe \
+         --main-jar TicTacToe.jar \
+         --main-class com.company.Main \
+         --type deb \
+         --dest ~/Desktop/ \
+         --app-version 1.0
+```
+
+**Step 2 — Make it executable:**
+```bash
+chmod +x build-deb.sh
+```
+
+**Step 3 — Run the script:**
+```bash
+./build-deb.sh
+```
+
+**Step 4 — Install the `.deb` file:**
+```bash
+sudo dpkg -i TicTacToe-1.0.deb
+```
+✅ App is now installed system-wide
+
+---
+
+## 📊 Platform Comparison
+
+| Feature | 🍎 macOS | 🪟 Windows | 🐧 Linux |
+|---------|---------|-----------|---------|
+| JAR works | ✅ | ✅ | ✅ |
+| Native package | `.dmg` | `.exe` | `.deb` |
+| Build script | `.sh` | `.bat` | `.sh` |
+| No Java needed | ✅ DMG | ✅ EXE | ✅ DEB |
+| jpackage built-in | ✅ Java 17+ | ✅ Java 17+ | ✅ Java 17+ |
+
+---
 
 ### Eingabe-Referenz
 
 ```
 Numpad-Layout:
-  7 | 8 | 9   →   oben
-  4 | 5 | 6   →   mitte
-  1 | 2 | 3   →   unten
+  7 | 8 | 9   →   top
+  4 | 5 | 6   →   middle
+  1 | 2 | 3   →   bottom
 
-Menü-Eingaben: Zahlen entsprechend der angezeigten Optionen
-Nochmal spielen: j (Ja) / n (Nein)
+Menu input:   numbers shown on screen
+Play again:   j (Yes) / n (No)
 ```
 
 ---
