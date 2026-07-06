@@ -36,9 +36,8 @@ TicTacToe/
 └── src/
     └── com/
         └── company/
-            ├── Main.java                  → Spielfluss, Menüs, Benutzereingaben
-            ├── t_game.java                → Gesamte Spiellogik & KI
-            └── InvalidInputException.java → Eigene Exception-Klasse
+            ├── Main.java   → Spielfluss, Menüs, Benutzereingaben
+            └── t_game.java → Gesamte Spiellogik & KI
 ```
 
 ### Klassenbeschreibung
@@ -47,7 +46,6 @@ TicTacToe/
 |--------|---------------|
 | `Main.java` | Einstiegspunkt, Menüführung, Spielerauswahl, Schwierigkeitswahl, Spielschleifen |
 | `t_game.java` | Spielbrett, Zugvalidierung, Gewinnprüfung, KI-Logik (Random & Minimax) |
-| `InvalidInputException.java` | Eigene Runtime-Exception für ungültige Benutzereingaben |
 
 ---
 
@@ -163,7 +161,6 @@ Computer    Spieler
 | **do-while Schleife** | „Nochmal spielen?" — läuft mindestens einmal |
 | **Rekursion** | Minimax-Algorithmus |
 | **Method Overloading** | `checkWinner()` und `checkWinner(char symbol)` |
-| **Eigene Exception** | `InvalidInputException extends RuntimeException` |
 | **OOP / Klassentrennung** | Spiellogik in `t_game`, Ablauf in `Main` |
 | **Character-Methoden** | `Character.isDigit()` für Zellenprüfung |
 
