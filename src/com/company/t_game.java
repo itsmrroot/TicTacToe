@@ -121,10 +121,10 @@ public class t_game {
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 3; j++) {
                     if (Character.isDigit(board[i][j])) {
-                        char saved = board[i][j];   // save original digit
+                        char saved = board[i][j];
                         board[i][j] = 'O';
                         int score = minimax(false);
-                        board[i][j] = saved;        // restore original digit
+                        board[i][j] = saved;
                         if (score > bestScore) bestScore = score;
                     }
                 }
@@ -135,10 +135,10 @@ public class t_game {
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 3; j++) {
                     if (Character.isDigit(board[i][j])) {
-                        char saved = board[i][j];   // save original digit
+                        char saved = board[i][j];
                         board[i][j] = 'X';
                         int score = minimax(true);
-                        board[i][j] = saved;        // restore original digit
+                        board[i][j] = saved;
                         if (score < bestScore) bestScore = score;
                     }
                 }
@@ -154,10 +154,10 @@ public class t_game {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (Character.isDigit(board[i][j])) {
-                    char saved = board[i][j];       // save original digit
+                    char saved = board[i][j];
                     board[i][j] = 'O';
                     int score = minimax(false);
-                    board[i][j] = saved;            // restore original digit
+                    board[i][j] = saved;
                     if (score > bestScore) {
                         bestScore = score;
                         bestRow = i;
