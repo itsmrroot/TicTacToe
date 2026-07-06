@@ -212,7 +212,7 @@ Es gibt **zwei Möglichkeiten**, eine Java-Anwendung zu verteilen:
 | **Methode 1 — JAR-Datei** | ✅ Ja | `.jar` | Entwickler / Technische Benutzer |
 | **Methode 2 — Native App** | ❌ Nein | `.dmg` / `.exe` / `.deb` | Endbenutzer |
 
-> ⚠️ **Wichtiger Hinweis:** Die DMG/EXE/DEB-Methode funktioniert nur für **GUI-Anwendungen** mit grafischen Fenstern. Da Tic-Tac-Toe eine **Konsolenanwendung** ist, die Terminal-Eingabe benötigt, wird **Methode 1 (JAR)** empfohlen.
+> ℹ️ **Hinweis:** Tic-Tac-Toe ist eine **Konsolenanwendung** und benötigt Terminal-Eingabe. Auf **macOS** öffnet die DMG-App bei Doppelklick (ohne angehängtes Terminal) automatisch ein Terminal-Fenster und startet das Spiel darin neu; gelingt das nicht (z. B. Automation-Berechtigung verweigert), erscheint ein Hinweisdialog. Auf **Windows/Linux** zeigt die EXE/DEB-App bei Doppelklick nur einen Hinweisdialog — dort wird **Methode 1 (JAR)** über ein Terminal/Eingabeaufforderung empfohlen.
 
 ---
 
@@ -367,7 +367,7 @@ sudo dpkg -i TicTacToe-1.0.deb
 | Build-Script | `.sh` | `.bat` | `.sh` |
 | Kein Java nötig | ✅ DMG | ✅ EXE | ✅ DEB |
 | jpackage integriert | ✅ Java 17+ | ✅ Java 17+ | ✅ Java 17+ |
-| Für Konsolenanwendungen | ⚠️ JAR empfohlen | ⚠️ JAR empfohlen | ⚠️ JAR empfohlen |
+| Für Konsolenanwendungen | ✅ DMG (Auto-Terminal) | ⚠️ JAR empfohlen | ⚠️ JAR empfohlen |
 
 ---
 
@@ -393,7 +393,7 @@ Nochmal spielen: j (Ja) / n (Nein)
 | **Lehrer** | G. Jarz |
 | **Institution** | BFI-Leoben |
 | **Jahr** | 2026 |
-| **GitHub** | https://github.com/BasharSalmo/TicTacToe |
+| **GitHub** | https://github.com/itsmrroot/TicTacToe |
 
 ---
 
