@@ -1,4 +1,7 @@
 ### IntelliJ IDEA ###
+.idea/
+*.iml
+out/
 .kotlin
 
 ### Eclipse ###
